@@ -11,8 +11,8 @@ export const Styledindex = styled.main`
 
     form{
         /* display: flex; */
-        border: 2px solid black;
-        max-width: 450px;
+        /* border: 2px solid black; */
+        max-width: 500px;
         margin: auto;
         
         div{
@@ -38,6 +38,8 @@ export const Styledindex = styled.main`
         .form{
             /* display: none; */
             position: relative;
+            border: 2px solid black;
+            border-radius: 20px;
             /* animation: aparece 600ms; */
             /* display: none; */
         }
@@ -113,7 +115,7 @@ export const Styledindex = styled.main`
             transition: linear 200ms;
             /* vertical-align: text-bottom; */
             display: block;
-            margin-left: 60px;
+            margin: auto;
             
         }
         button:hover{
