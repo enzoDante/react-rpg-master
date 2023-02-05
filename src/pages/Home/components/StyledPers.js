@@ -12,9 +12,7 @@ export const StyledPers = styled.div`
     @media screen and (max-width: 1300px){
         grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (max-width: 870px){
-        grid-template-columns: 1fr;
-    }
+    
 
 
     .item{
@@ -121,6 +119,31 @@ export const StyledPers = styled.div`
         }
         button:hover{
             opacity: 0.5;
+        }
+
+    }
+    @media screen and (max-width: 870px){
+        grid-template-columns: 1fr;
+        .item{
+            width: 335px;
+            margin: 5px;
+            padding: 5px;
+
+            h1{
+                width: 280px;
+            }
+            input[type=number]{
+                width: 80px;
+                margin: 4px;
+            }
+            textarea{
+                width: 180px;
+            }
+            button{
+                font-weight: normal;
+                margin-left: 4px;
+            }
+
         }
     }
 
