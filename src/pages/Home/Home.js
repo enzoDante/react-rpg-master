@@ -6,6 +6,7 @@ import { Styledindex } from "./Styledindex";
 export default function Home(){
     const [ativa, setAtiva] = useState(false)
     const [valores, setValores] = useState({
+        id: 0,
         nome: "",
         armadura: 0,
         vida: 0,
@@ -23,12 +24,16 @@ export default function Home(){
     //     console.log(valores)
     //     console.log(vals)
     // }, [])
-
+    let id = 0
     function adicionarDado(e){
         e.preventDefault()
+        const nome = "id"
+        setValores({...valores, [nome]: id})
+        id++
 
         setVals([...vals, valores])
         setValores({
+            id: 0,
             nome: "",
             armadura: 0,
             vida: 0,

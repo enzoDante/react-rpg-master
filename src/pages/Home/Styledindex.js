@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Styledindex = styled.main`
     min-width: 200px;
-    max-width: 1200px;
+    max-width: 1500px;
     min-height: 500px;
     border-radius: 0 0 20px 20px;
     margin: auto;

@@ -2,6 +2,21 @@ import styled from "styled-components";
 
 export const StyledPers = styled.div`
 
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-auto-flow: dense; */
+    /* grid-auto-flow: row; */
+    border: 2px solid red;
+    justify-items: center;
+    @media screen and (max-width: 1300px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 870px){
+        grid-template-columns: 1fr;
+    }
+
+
     .item{
         margin: 20px;
         display: flex;
@@ -9,7 +24,7 @@ export const StyledPers = styled.div`
         border: 2px solid green;
         border-radius: 10px;
         display: inline-block;
-        width: 350px;
+        width: 370px;
         padding: 10px;
 
         span{
@@ -88,7 +103,7 @@ export const StyledPers = styled.div`
             display: inline-block;
         }
         button{
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             min-width: 100px;
             height: 35px;
@@ -101,7 +116,8 @@ export const StyledPers = styled.div`
             transition: linear 200ms;
             /* vertical-align: text-bottom; */
             display: inline-block;
-            margin: auto;
+            /* margin: auto; */
+            margin-left: 10px;
         }
         button:hover{
             opacity: 0.5;
