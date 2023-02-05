@@ -30,10 +30,12 @@ export const Styledindex = styled.main`
         #modalaparece{
             /* border: 2px solid red; */
             vertical-align: top;
+            /* border-radius: 50%; */
         }
         span{
             font-size: 2.5em;
             cursor: pointer;
+
         }
         .form{
             /* display: none; */
@@ -62,6 +64,20 @@ export const Styledindex = styled.main`
         }
         label{
             margin: 5px;
+        }
+        input[type=text]{
+            display: block;
+            margin: auto;
+            margin-left: -4px;
+            font-size: 1em;
+            font-weight: bold;
+            height: 25px;
+            width: 100%;
+            border-radius: 6px;
+            border: 2px solid black;
+            color: white;
+            background-color: transparent;
+            outline: none;
         }
         input[type=number]{
             display: block;
