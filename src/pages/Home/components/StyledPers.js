@@ -7,7 +7,7 @@ export const StyledPers = styled.div`
     grid-template-columns: repeat(3, 1fr);
     /* grid-auto-flow: dense; */
     /* grid-auto-flow: row; */
-    border: 2px solid red;
+    /* border: 2px solid red; */
     justify-items: center;
     @media screen and (max-width: 1300px){
         grid-template-columns: repeat(2, 1fr);

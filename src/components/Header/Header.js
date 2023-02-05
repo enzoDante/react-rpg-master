@@ -22,7 +22,7 @@ function Logo(){
 function RotasLinks(){
     return(
         <div className="links">
-            teste
+            <h2>Ferramenta auxiliar para mestres</h2>
         </div>
     )
 }
