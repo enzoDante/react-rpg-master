@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Personagens from "./components/Personagens";
 import { Styledindex } from "./Styledindex";
 
@@ -18,11 +18,11 @@ export default function Home(){
         setValores({...valores, [e.target.name]: e.target.value})
     }
 
-    useEffect(() => {
-        // console.log(ativa)
-        // console.log(valores)
-        // console.log(vals)
-    }, [])
+    // useEffect(() => {
+    //     console.log(ativa)
+    //     console.log(valores)
+    //     console.log(vals)
+    // }, [])
 
     function adicionarDado(e){
         e.preventDefault()
@@ -35,17 +35,13 @@ export default function Home(){
             deslocamento: 0,
             adicionais: ""
         })
-
-        console.log('oiiee')
-        // console.log(vals)
-        // console.log('separaraaa')
     }
 
     return(
         <Styledindex>
             <form id="criar">
                 <div id="modalaparece" className={ativa ? "virax" : "volta"}>
-                    <span  onClick={(e) => {
+                    <span  onClick={() => {
                         setAtiva(status => !status)
                     }}>+</span>
                 </div>

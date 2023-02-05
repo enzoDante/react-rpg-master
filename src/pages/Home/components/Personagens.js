@@ -12,6 +12,27 @@ export default function Personagens({valor}){
     let i = 0
     return(
         <StyledPers>
+            <div className="item">
+                <span>Delete</span>
+                <h1>nome</h1>
+                
+                <div id="atributos">
+                    <label htmlFor="armadura2">Armadura:</label>
+                    <input type="number" name="armadura2" id="armadura2" />
+                    <label htmlFor="vida2">Pontos de vida:</label>
+                    <input type="number" name="vida2" id="vida2" />
+                    <label htmlFor="deslocamento2">Deslocamento:</label>
+                    <input type="number" name="deslocamento2" id="deslocamento2" />
+                </div>
+                <div id="adde">
+                    <textarea name="adicionais" id="adicionais" cols="30" rows="10"></textarea>
+                </div>
+                
+                <label htmlFor="dano" id="ldano">Levou dano:</label>
+                <input type="number" name="dano" id="danolevado" />
+                <button>Aplicar dano</button>
+            </div>
+
             {valor.map((e) => {
                 console.log('saa')
                 console.log(e)
@@ -22,9 +43,7 @@ export default function Personagens({valor}){
                     </div>
                 )
             })}
-            <div>
-
-            </div>
+            
         </StyledPers>
     )
 }
