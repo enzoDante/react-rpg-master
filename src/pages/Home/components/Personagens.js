@@ -1,9 +1,10 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { StyledPers } from "./StyledPers";
 // import { useId } from "react-id-generator";
 
 
-export default function Personagens({valor}){
+export default function Personagens({valo}){ //{valor}
     // const ta = useId(valor.length)
     const [atributos, setAtributos] = useState([])
 
@@ -12,20 +13,31 @@ export default function Personagens({valor}){
     }
 
     useEffect(() =>{
-        // console.log('sepa')
-        // console.log(valor.armadura)
-        // console.log(valor[0])
-        console.log(valor)
-        // console.log(valor.length)
+        axios.get("http://localhost/praticas-php/BACKEND-outros/react-rpg-master/getdado.php").then((e) => {
+            
+            console.log(e)
+            
+            // console.log(JSON.parse(e.data[0]).id)
+            const dados = e.data
+            let valores = []
+            dados.forEach(element => {
+                console.log(element)
+                const valor = JSON.parse(element)
+                valores.push(valor)
+            });
+            
 
-        // console.log('separa')
-        // console.log(atributos)
-    }, [valor])
+            setAtributos(valores)
+            console.log('sadsadsasad')
+            console.log(atributos)
+        })
+
+    }, [valo])
     return(
         <StyledPers>
-            {valor.map((e, id) => {
+            {atributos.map((e, id) => {
                 // console.log(id)
-                setAtributos({...atributos, e})
+                // setAtributos({...atributos, e})
                 return(
                     <div className="item" key={id}>
                         <span>Delete</span>

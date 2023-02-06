@@ -1,12 +1,15 @@
+import axios from "axios";
+// import Axios from "axios";
 import { useEffect, useState } from "react";
-import { useId } from "react-id-generator";
-import nextId from "react-id-generator"; //lib/nextId
+// import { useId } from "react-id-generator";
+// import nextId from "react-id-generator"; //lib/nextId
 import Personagens from "./components/Personagens";
 import { Styledindex } from "./Styledindex";
 
 
 export default function Home(){
     const [ativa, setAtiva] = useState(false)
+    const [mudar, setMudar] = useState(false)
     // const [id, setId] = useState(1)
     const [valores, setValores] = useState({
         id: '0',
@@ -16,7 +19,7 @@ export default function Home(){
         deslocamento: 0,
         adicionais: ""
     })
-    const [vals, setVals] = useState([])
+    // const [vals, setVals] = useState([])
     // const nome = 'id'
     const setValues = e => {
         // setValores({...valores, [nome]: id})
@@ -29,17 +32,41 @@ export default function Home(){
         // console.log(vals)
         
     }, [])
-    // let id = 0
-    // const idsl = useId()
+    
+
     async function adicionarDado(e){
         e.preventDefault()
-        // const nome = "id"
-        // setId(id+1)
-        // const testid = nextId()
-        // setValores({...valores, [nome]: testid})
-        // console.log(testid)
+        const headers = {
+            'Content-Type': 'application/json'
+        }
 
-        setVals([...vals, valores])
+        const data = new FormData()
+        data.append('nome', valores.nome)
+        data.append('armadura', valores.armadura)
+        data.append('vida', valores.vida)
+        data.append('deslocamento', valores.deslocamento)
+        data.append('adicionais', valores.adicionais)
+
+        axios.post("http://localhost/praticas-php/BACKEND-outros/react-rpg-master/cadastro.php", data, {
+            headers: headers //ou headers: {'Content-Type': 'application/json'}
+        }).then((e) => {
+            console.log('teste separa')
+            console.log(e)
+        })
+        //======================================================
+        // Axios({
+        //     method: "POST",
+        //     url: "http://localhost/praticas-php/BACKEND-outros/react-rpg-master/cadastro.php", 
+        //     headers: { 'Content-Type': 'application/json' },
+        //     data: {
+        //         valores
+        //     }
+        // }).then((e) => {
+        //     console.log('teste separa')
+        //     console.log(e)
+        // })
+        //======================================================
+        // setVals([...vals, valores])
         setValores({
             id: '0',
             nome: "",
@@ -48,11 +75,12 @@ export default function Home(){
             deslocamento: 0,
             adicionais: ""
         })
+        setMudar(status => !status)
     }
 
     return(
         <Styledindex>
-            <form id="criar">
+            <form id="criar" method="post">
                 <div id="modalaparece" className={ativa ? "virax" : "volta"}>
                     <span  onClick={() => {
                         setAtiva(status => !status)
@@ -81,7 +109,7 @@ export default function Home(){
                 
 
             </form>
-            <Personagens valor={vals} />
+            <Personagens valo={mudar} /> {/* valor={vals} */}
         </Styledindex>
     )    
 }
