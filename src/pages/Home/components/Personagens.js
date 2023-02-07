@@ -39,6 +39,14 @@ export default function Personagens({valo}){ //{valor}
                 // console.log(id)
                 // setAtributos({...atributos, e})
                 
+                let elementso = e
+                console.log(elementso)
+
+                const pa = ee => {
+                    elementso.armadura = ee.target.value
+                    console.log("hmmm")
+                    console.log(elementso)
+                }
 
                 return(
                     <div className="item" key={id}>
@@ -60,7 +68,7 @@ export default function Personagens({valo}){ //{valor}
                         
                         <div id="atributos">
                             <label htmlFor={"armadura"+ e.id}>Armadura:</label>
-                            <input type="number" name="armadura2" id={"armadura"+ e.id} onChange={setValues} value={e.armadura} />
+                            <input type="number" name="armadura2" id={"armadura"+ e.id} onChange={pa} value={elementso.armadura} />
                             <label htmlFor={"vida"+ e.id}>Pontos de vida:</label>
                             <input type="number" name="vida2" id={"vida"+ e.id} onChange={setValues} value={e.vida} />
                             <label htmlFor={"deslocamento"+e.id}>Deslocamento:</label>
