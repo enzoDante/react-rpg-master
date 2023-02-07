@@ -15,21 +15,21 @@ export default function Personagens({valo}){ //{valor}
     useEffect(() =>{
         axios.get("http://localhost/praticas-php/BACKEND-outros/react-rpg-master/getdado.php").then((e) => {
             
-            console.log(e)
+            // console.log(e)
             
             // console.log(JSON.parse(e.data[0]).id)
             const dados = e.data
             let valores = []
             dados.forEach(element => {
-                console.log(element)
+                // console.log(element)
                 const valor = JSON.parse(element)
                 valores.push(valor)
             });
             
 
             setAtributos(valores)
-            console.log('sadsadsasad')
-            console.log(atributos)
+            // console.log('sadsadsasad')
+            // console.log(atributos)
         })
 
     }, [valo])
@@ -38,9 +38,24 @@ export default function Personagens({valo}){ //{valor}
             {atributos.map((e, id) => {
                 // console.log(id)
                 // setAtributos({...atributos, e})
+                
+
                 return(
                     <div className="item" key={id}>
-                        <span>Delete</span>
+                        <span onClick={() => {
+                            // console.log(e.id)
+                            const data = new FormData()
+                            data.append("id", e.id)
+
+                            axios.post("http://localhost/praticas-php/BACKEND-outros/react-rpg-master/delete.php", data, {
+                                headers: {'Content-Type': 'application/json'}
+                            }).then((e) => {
+                                console.log('deletar teste')
+                                console.log(e)
+                            })
+
+
+                        }}>Delete</span>
                         <h1>{e.nome}</h1>
                         
                         <div id="atributos">
@@ -59,6 +74,7 @@ export default function Personagens({valo}){ //{valor}
                         <input type="number" name="dano" id="danolevado" />
                         <button>Aplicar dano</button>
                         <button>Aplicar vida</button>
+                        <button>Salvar</button>
                     </div>
                 )
             })}
